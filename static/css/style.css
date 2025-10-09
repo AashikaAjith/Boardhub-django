@@ -1,0 +1,50 @@
+/* Navbar gradient */
+
+
+.navbar-custom {
+    background: linear-gradient(90deg, #4b0082, #6a0dad) !important; /* deep purple gradient */
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+    color: #ffffff;
+}
+
+.navbar-custom .nav-link:hover {
+    color: #ffb6c1; /* soft pink hover */
+}
+
+
+/* Breadcrumb styling */
+.breadcrumb-custom {
+    background-color: #F0F0F0;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+}
+
+/* Card styling */
+.card-custom {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+.card-custom:hover {
+    transform: translateY(-5px);
+}
+
+/* Badges */
+.badge-custom {
+    background-color: #20B2AA;
+    color: #fff;
+}
+
+/* Links */
+a.custom-link {
+    color: #FF6F61;
+    font-weight: 500;
+    text-decoration: none;
+}
+a.custom-link:hover {
+    color: #FF4500;
+}

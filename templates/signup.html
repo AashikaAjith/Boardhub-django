@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheet %}
+  <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container d-flex align-items-center justify-content-center" style="min-height: 90vh;">
+  <div class="col-lg-6 col-md-8 col-sm-12">
+    <div class="card shadow-lg border-0 rounded-4">
+      <div class="card-body p-5">
+        <!-- Logo / Title -->
+        <h1 class="text-center mb-4">
+          <a href="{% url 'home' %}" class="text-decoration-none text-dark fw-bold">BoardHub</a>
+        </h1>
+
+        <!-- Form title -->
+        <h3 class="card-title text-center mb-4">Create Your Account</h3>
+
+        <!-- Signup form -->
+        <form method="post" novalidate>
+          {% csrf_token %}
+          {% include 'includes/form.html' %}
+          <div class="d-grid">
+            <button type="submit" class="btn btn-success btn-lg rounded-pill shadow-sm">
+              Create Account
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Card footer -->
+      <div class="card-footer bg-light text-center py-3">
+        <small class="text-muted">
+          Already have an account? <a href="{% url 'login' %}">Log in</a>
+         
+        </small>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

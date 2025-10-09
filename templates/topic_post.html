@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load gravatar %}
+
+{% block title %}{{ topic.subject }}{% endblock %}
+
+{% block breadcrumb %}
+<!-- Breadcrumb navigation -->
+<nav aria-label="breadcrumb" class="mb-3">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Boards</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'board_topics' topic.board.pk %}">{{ topic.board.name }}</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ topic.subject }}</li>
+  </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+
+  <!-- ===================== MAIN POST ===================== -->
+  <div class="card mb-4 shadow-sm border-3 border-dark">
+    <div class="card-header bg-dark text-white">
+      <h5 class="mb-0">{{ topic.subject }}</h5>
+      <small class="text-light">
+        Started by {{ main_post.created_by.username }} on {{ main_post.created_at|date:"M d, Y H:i" }}
+      </small>
+    </div>
+    <div class="card-body">
+      <div class="d-flex align-items-start">
+
+        <!-- User info / avatar -->
+        <div class="d-flex flex-column align-items-center me-3" style="min-width: 100px;">
+          <img src="{{ main_post.created_by|gravatar }}" 
+               alt="{{ main_post.created_by.username }}" 
+               class="img-fluid rounded-circle mb-2" 
+               style="width: 50px; height: 50px;">
+          <small>{{ main_post.created_by.posts.count }}</small>
+          <strong>{{ main_post.created_by.username }}</strong>
+        </div>
+
+        <!-- Post content -->
+        <div class="flex-grow-1">
+          <small class="text-muted">
+            {% if main_post.updated_at %}
+              Updated: {{ main_post.updated_at|date:"M d, Y H:i" }}
+            {% else %}
+              Created: {{ main_post.created_at|date:"M d, Y H:i" }}
+            {% endif %}
+          </small>
+          <p class="mb-0 fs-6">{{ main_post.get_message_as_markdown|linebreaks }}</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== REPLIES ===================== -->
+  {% for post in posts %}
+  <div class="card mb-4 shadow-sm">
+
+    <div class="card-body">
+      <div class="d-flex align-items-start">
+
+        <!-- User info / avatar -->
+        <div class="d-flex flex-column align-items-center me-3" style="min-width: 100px;">
+          <img src="{{ post.created_by|gravatar }}" 
+               alt="{{ post.created_by.username }}" 
+               class="img-fluid rounded-circle mb-2" 
+               style="width: 50px; height: 50px;">
+          <small>{{ post.created_by.posts.count }}</small>
+          <strong>{{ post.created_by.username }}</strong>
+        </div>
+
+        <!-- Post content -->
+        <div class="flex-grow-1">
+          <div class="d-flex justify-content-between mb-2">
+            <small class="text-muted">
+              {% if post.updated_at %}
+                Updated: {{ post.updated_at|date:"M d, Y H:i" }}
+              {% else %}
+                Created: {{ post.created_at|date:"M d, Y H:i" }}
+              {% endif %}
+            </small>
+
+            <!-- Edit button for posts by current user -->
+            {% if post.created_by == user %}
+            <a href="{% url 'edit_post' post.topic.board.pk post.topic.pk post.pk %}" 
+               class="btn btn-sm btn-outline-primary">Edit</a>
+            {% endif %}
+          </div>
+
+          <!-- Post message in markdown format -->
+          <p class="mb-0 fs-6">{{ post.get_message_as_markdown|linebreaks }}</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <!-- Message if no replies exist -->
+  <div class="alert alert-info text-center">
+    No replies yet. Be the first to reply!
+    <a href="{% url 'reply_topic' topic.board.pk topic.pk %}" class="btn btn-primary btn-lg mt-2">
+      <i class="bi bi-reply-fill"></i> Reply
+    </a>
+  </div>
+  {% endfor %}
+
+  <!-- ===================== REPLY BUTTON ===================== -->
+  <div class="mb-4 text-center">
+    <a href="{% url 'reply_topic' topic.board.pk topic.pk %}" class="btn btn-primary btn-lg">
+      <i class="bi bi-reply-fill"></i> Reply
+    </a>
+  </div>
+
+  <!-- ===================== PAGINATION ===================== -->
+  {% include 'includes/pagination.html' %}
+
+</div>
+{% endblock %}

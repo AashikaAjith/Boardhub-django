@@ -1,0 +1,39 @@
+
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active" aria-current="page">Boards</li>
+{% endblock %}
+
+{% block content %}
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+  {% for board in boards %}
+    <div class="col">
+      <div class="card card-custom h-100">
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href="{% url 'board_topics' board.pk %}" class="custom-link">{{ board.name }}</a>
+          </h5>
+          <p class="card-text text-muted">{{ board.description }}</p>
+        </div>
+
+        <div class="card-footer d-flex justify-content-between align-items-center bg-white border-0">
+          <div>
+            <span class="badge badge-custom">Posts: {{ board.get_posts_count }}</span>
+            <span class="badge badge-custom">Topics: {{ board.topics.count }}</span>
+          </div>
+          <small class="text-muted">
+            Last Post: {% if board.topics.last and board.topics.last.posts.last %}
+                        {{ board.topics.last.posts.last.created_at|date:"M d, Y H:i" }}
+                      {% else %}
+                        --
+                      {% endif %}
+          </small>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p class="text-muted">No boards available.</p>
+  {% endfor %}
+</div>
+{% endblock %}

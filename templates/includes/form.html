@@ -1,0 +1,32 @@
+{% load widget_tweaks %}
+{% load form_tags %}  
+
+
+{% if form.non_field_errors %}
+  <div class="alert alert-danger" role="alert">
+    {% for error in form.non_field_errors %}
+      <p{% if forloop.last %} class="mb-0"{% endif %}>{{ error }}</p>
+    {% endfor %}
+  </div>
+{% endif %}
+
+{# Loop through all fields #}
+{% for field in form %}
+  <div class="mb-3">
+    {{ field.label_tag }}
+
+    {% if field.name == "message" %}
+      {% render_field field class="form-control" id="id_message" %}
+    {% else %}
+      {% render_field field class=field|input_class %}
+    {% endif %}
+
+    {% for error in field.errors %}
+      <div class="invalid-feedback">{{ error }}</div>
+    {% endfor %}
+
+    {% if field.help_text %}
+      <div class="form-text">{{ field.help_text|safe }}</div>
+    {% endif %}
+  </div>
+{% endfor %}

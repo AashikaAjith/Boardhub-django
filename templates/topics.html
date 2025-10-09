@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Boards</a></li>
+  <li class="breadcrumb-item active" aria-current="page">{{ board.name }}</li>
+{% endblock %}
+
+{% block content %}
+<div class="card card-custom mb-4">
+  <div class="card-body">
+    <h3 class="card-title">{{ board.name }}</h3>
+    <p class="card-text text-muted">{{ board.description }}</p>
+    <a href="{% url 'new_topic' board.pk %}" class="btn btn-primary">
+      + New Topic
+    </a>
+  </div>
+</div>
+
+
+
+
+<!-- ✅ Card/Grid view -->
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  {% for topic in topics %}
+    <div class="col">
+      <div class="card card-custom h-100">
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href="{% url 'topic_posts' board.pk topic.pk %}">{{ topic.subject }}</a>
+          </h5>
+          <p class="card-text text-muted">
+            Started by {{ topic.starter.username }}
+          </p>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center bg-white border-0">
+          <small class="text-muted">
+            Replies: {{ topic.replies }} | Views: {{ topic.views }}
+          </small>
+          <small class="text-muted">
+            Last post:
+            {% if topic.get_last_post %}
+              <a href="{{ topic.get_last_post_url }}">
+                {{ topic.get_last_post.created_at|date:"M d, Y H:i" }}
+              </a>
+            {% else %}
+              No posts yet
+            {% endif %}
+          </small>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% include 'includes/pagination.html' %}
+
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}My Account{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active" aria-current="page">My Account</li>
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-10">
+      
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0">Account Settings</h5>
+          <small class="text-light">Update your profile information</small>
+        </div>
+        <div class="card-body">
+          <form method="post" novalidate>
+            {% csrf_token %}
+            {% include 'includes/form.html' %}
+
+            <div class="d-grid mt-3">
+              <button type="submit" class="btn btn-success btn-lg">
+                Save Changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

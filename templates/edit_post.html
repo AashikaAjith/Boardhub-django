@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Post{% endblock %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb" class="mb-4">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Boards</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'board_topics' post.topic.board.pk %}">{{ post.topic.board.name }}</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'topic_posts' post.topic.board.pk post.topic.pk %}">{{ post.topic.subject }}</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit Post</li>
+  </ol>
+
+</nav>
+{% endblock %}
+
+{% block stylesheet %}
+  <!-- EasyMDE CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm border-primary">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0">Edit Your Post</h5>
+          <small>Topic: {{ post.topic.subject }}</small>
+        </div>
+        <div class="card-body">
+          <form method="post" novalidate>
+            {% csrf_token %}
+            
+            <!-- Include form fields -->
+            {% include 'includes/form.html' %}
+            
+            <div class="d-flex justify-content-between mt-4">
+              <button type="submit" class="btn btn-success">
+                <i class="bi bi-check-lg"></i> Save Changes
+              </button>
+              <a href="{% url 'topic_posts' post.topic.board.pk post.topic.pk %}" class="btn btn-outline-secondary">
+                <i class="bi bi-x-lg"></i> Cancel
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+  <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const textarea = document.getElementById("id_message");
+      if (!textarea) return;
+
+      const easyMDE = new EasyMDE({
+        element: textarea,
+        spellChecker: false,
+        placeholder: "Write your reply here...",
+        status: false
+      });
+
+      // Sync markdown content back to hidden textarea before submitting
+      const form = textarea.closest("form");
+      if (form) {
+        form.addEventListener("submit", function () {
+          easyMDE.codemirror.save();
+          textarea.style.display = "block"; // make it visible just before submit
+        });
+      }
+    });
+  </script>
+{% endblock %}
