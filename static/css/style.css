@@ -1,50 +1,186 @@
-/* Navbar gradient */
+/* =========================
+   Global Theme Variables
+========================= */
+:root {
+    --primary-color: #A3485A;
+    --secondary-color: #662222;
+    --accent-color: #F5DAA7;
+    --highlight-color: #842A3B;
+    --text-light: #ffffff;
+    --text-dark: #2b2b2b;
+}
 
+/* =========================
+   Global Styles
+========================= */
+body {
+    background-color: var(--accent-color) !important;
+    color: var(--text-dark);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
 
+/* =========================
+   Navbar
+========================= */
 .navbar-custom {
-    background: linear-gradient(90deg, #4b0082, #6a0dad) !important; /* deep purple gradient */
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .navbar-custom .navbar-brand,
 .navbar-custom .nav-link {
-    color: #ffffff;
+    color: var(--text-light) !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .navbar-custom .nav-link:hover {
-    color: #ffb6c1; /* soft pink hover */
+    color: var(--accent-color) !important;
 }
 
-
-/* Breadcrumb styling */
-.breadcrumb-custom {
-    background-color: #F0F0F0;
-    border-radius: 0.5rem;
-    padding: 0.75rem 1rem;
+/* =========================
+   Buttons
+========================= */
+.btn-custom {
+    background-color: var(--primary-color);
+    border: none;
+    color: var(--text-light);
+    padding: 0.6rem 1.25rem;
+    border-radius: 0.4rem;
+    transition: all 0.3s ease;
 }
 
-/* Card styling */
+.btn-custom:hover {
+    background-color: var(--highlight-color);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* =========================
+   Cards
+========================= */
 .card-custom {
+    background-color: var(--accent-color);
     border: none;
     border-radius: 0.75rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .card-custom:hover {
     transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 
-/* Badges */
-.badge-custom {
-    background-color: #20B2AA;
-    color: #fff;
+.card-custom .card-title {
+    color: var(--secondary-color);
+    font-weight: 600;
 }
 
-/* Links */
-a.custom-link {
-    color: #FF6F61;
+.card-custom .card-text {
+    color: var(--secondary-color);
+}
+
+/* =========================
+   Breadcrumb
+========================= */
+.breadcrumb-custom {
+    background-color: var(--accent-color);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: var(--secondary-color);
     font-weight: 500;
+}
+
+.breadcrumb-custom a {
+    color: var(--primary-color);
     text-decoration: none;
 }
-a.custom-link:hover {
-    color: #FF4500;
+
+.breadcrumb-custom a:hover {
+    color: var(--highlight-color);
+}
+
+/* =========================
+   Links
+========================= */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--highlight-color);
+}
+
+/* =========================
+   Alerts / Messages
+========================= */
+.alert-custom {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 0.5rem;
+}
+
+/* =========================
+   Footer
+========================= */
+.footer-custom {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.footer-custom a {
+    color: var(--accent-color);
+}
+
+.footer-custom a:hover {
+    color: var(--highlight-color);
+}
+
+/* =========================
+   Form Elements
+========================= */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+    border: 1px solid var(--primary-color);
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--highlight-color);
+    box-shadow: 0 0 5px rgba(164,72,90,0.4);
+}
+
+/* =========================
+   Utility
+========================= */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+.text-secondary {
+    color: var(--secondary-color) !important;
+}
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+.bg-secondary {
+    background-color: var(--secondary-color) !important;
 }

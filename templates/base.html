@@ -11,18 +11,78 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="{% static 'css/style.css' %}?v=2" rel="stylesheet">
+    <style>
+      /* Navbar gradient using your palette */
+      .navbar-custom {
+        background: linear-gradient(90deg, #662222, #A3485A);
+      }
 
-     {% block stylesheet %}{% endblock %}
+      .navbar-custom .navbar-brand,
+      .navbar-custom .nav-link {
+        color: #F5DAA7 !important;
+        font-weight: 500;
+      }
+
+      .navbar-custom .nav-link:hover {
+        color: #842A3B !important;
+      }
+
+      /* Breadcrumb styling */
+      .breadcrumb-custom {
+        background-color: #F5DAA7;
+        border-radius: 0.5rem;
+        padding: 0.75rem 1rem;
+      }
+
+      /* Buttons */
+      .btn-primary {
+        background-color: #A3485A !important;
+        border-color: #A3485A !important;
+      }
+
+      .btn-primary:hover {
+        background-color: #842A3B !important;
+        border-color: #842A3B !important;
+      }
+
+      /* Links */
+      a {
+        color: #A3485A;
+        text-decoration: none;
+      }
+      a:hover {
+        color: #842A3B;
+      }
+
+      /* Cards */
+      .card-custom {
+        border: none;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: transform 0.2s;
+      }
+      .card-custom:hover {
+        transform: translateY(-5px);
+      }
+
+      /* Navbar logout button alignment */
+      .navbar-custom .nav-item form button.nav-link {
+        color: #F5DAA7 !important;
+        font-weight: 500;
+      }
+      .navbar-custom .nav-item form button.nav-link:hover {
+        color: #842A3B !important;
+      }
+    </style>
+
+    <link href="{% static 'css/style.css' %}?v=10" rel="stylesheet">
+    {% block stylesheet %}{% endblock %}
 
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-      {% block javascript %}{% endblock %}  
-  
+    {% block javascript %}{% endblock %}  
   </head>
-  <body>
-    <!-- Debug line (optional, remove in production) -->
-    <!-- <p>User object: {{ user }} | Authenticated: {{ user.is_authenticated }}</p> -->
 
+  <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
       <div class="container">
@@ -40,19 +100,21 @@
 
             {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link fw-bold text-warning" href="#">{{ user.username }}</a>
+                <a class="nav-link fw-bold" href="#">{{ user.username }}</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'password_change' %}">Change Password</a>
               </li>
-              <li class="nav-item">
-                <form method="post" action="{% url 'logout' %}">
+
+              <li class="nav-item d-flex align-items-center">
+                <form method="post" action="{% url 'logout' %}" class="m-0 p-0">
                   {% csrf_token %}
-                  <button type="submit" class="btn btn-link nav-link" style="display:inline; padding:0;">
+                  <button type="submit" class="btn btn-link nav-link m-0 p-0" style="line-height: 1.5;">
                     Logout
                   </button>
                 </form>
               </li>
+
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'my_account' %}">My Account</a>
               </li>
@@ -64,7 +126,6 @@
                 <a class="nav-link" href="{% url 'login' %}">Login</a>
               </li>
             {% endif %}
-
           </ul>
         </div>
       </div>
@@ -72,18 +133,16 @@
 
     <!-- Main container -->
     <div class="container my-5">
-      <!-- Breadcrumb -->
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-custom">
           {% block breadcrumb %}{% endblock %}
         </ol>
       </nav>
 
-      <!-- Page content -->
       {% block content %}{% endblock %}
     </div>
 
-    <!-- Bootstrap JS Bundle (with Popper) -->
+    <!-- Bootstrap JS Bundle -->
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
   </body>
 </html>

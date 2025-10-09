@@ -19,24 +19,24 @@
 <div class="container my-4">
 
   <!-- ===================== MAIN POST ===================== -->
-  <div class="card mb-4 shadow-sm border-3 border-dark">
-    <div class="card-header bg-dark text-white">
+  <div class="card mb-4 shadow-sm border-3" style="border-color: #A3485A;">
+    <div class="card-header text-white" style="background-color: #662222;">
       <h5 class="mb-0">{{ topic.subject }}</h5>
-      <small class="text-light">
+      <small style="color: #F5DAA7;">
         Started by {{ main_post.created_by.username }} on {{ main_post.created_at|date:"M d, Y H:i" }}
       </small>
     </div>
-    <div class="card-body">
+    <div class="card-body" style="background-color: #FFF8F4;">
       <div class="d-flex align-items-start">
 
         <!-- User info / avatar -->
         <div class="d-flex flex-column align-items-center me-3" style="min-width: 100px;">
           <img src="{{ main_post.created_by|gravatar }}" 
                alt="{{ main_post.created_by.username }}" 
-               class="img-fluid rounded-circle mb-2" 
-               style="width: 50px; height: 50px;">
+               class="img-fluid rounded-circle mb-2 border border-2"
+               style="width: 50px; height: 50px; border-color: #A3485A;">
           <small>{{ main_post.created_by.posts.count }}</small>
-          <strong>{{ main_post.created_by.username }}</strong>
+          <strong style="color: #842A3B;">{{ main_post.created_by.username }}</strong>
         </div>
 
         <!-- Post content -->
@@ -57,19 +57,19 @@
 
   <!-- ===================== REPLIES ===================== -->
   {% for post in posts %}
-  <div class="card mb-4 shadow-sm">
+  <div class="card mb-4 shadow-sm" style="border-left: 4px solid #A3485A;">
 
-    <div class="card-body">
+    <div class="card-body" style="background-color: #FFFDF9;">
       <div class="d-flex align-items-start">
 
         <!-- User info / avatar -->
         <div class="d-flex flex-column align-items-center me-3" style="min-width: 100px;">
           <img src="{{ post.created_by|gravatar }}" 
                alt="{{ post.created_by.username }}" 
-               class="img-fluid rounded-circle mb-2" 
-               style="width: 50px; height: 50px;">
+               class="img-fluid rounded-circle mb-2 border border-2"
+               style="width: 50px; height: 50px; border-color: #A3485A;">
           <small>{{ post.created_by.posts.count }}</small>
-          <strong>{{ post.created_by.username }}</strong>
+          <strong style="color: #842A3B;">{{ post.created_by.username }}</strong>
         </div>
 
         <!-- Post content -->
@@ -86,7 +86,10 @@
             <!-- Edit button for posts by current user -->
             {% if post.created_by == user %}
             <a href="{% url 'edit_post' post.topic.board.pk post.topic.pk post.pk %}" 
-               class="btn btn-sm btn-outline-primary">Edit</a>
+               class="btn btn-sm"
+               style="background-color: #A3485A; color: #fff; border-color: #842A3B;">
+              Edit
+            </a>
             {% endif %}
           </div>
 
@@ -99,9 +102,11 @@
   </div>
   {% empty %}
   <!-- Message if no replies exist -->
-  <div class="alert alert-info text-center">
+  <div class="alert text-center" style="background-color: #F5DAA7; color: #662222;">
     No replies yet. Be the first to reply!
-    <a href="{% url 'reply_topic' topic.board.pk topic.pk %}" class="btn btn-primary btn-lg mt-2">
+    <a href="{% url 'reply_topic' topic.board.pk topic.pk %}" 
+       class="btn btn-lg mt-2"
+       style="background-color: #A3485A; color: #fff;">
       <i class="bi bi-reply-fill"></i> Reply
     </a>
   </div>
@@ -109,7 +114,9 @@
 
   <!-- ===================== REPLY BUTTON ===================== -->
   <div class="mb-4 text-center">
-    <a href="{% url 'reply_topic' topic.board.pk topic.pk %}" class="btn btn-primary btn-lg">
+    <a href="{% url 'reply_topic' topic.board.pk topic.pk %}" 
+       class="btn btn-lg"
+       style="background-color: #A3485A; color: #fff; border-color: #842A3B;">
       <i class="bi bi-reply-fill"></i> Reply
     </a>
   </div>
