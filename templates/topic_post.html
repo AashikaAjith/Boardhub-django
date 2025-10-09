@@ -104,11 +104,7 @@
   <!-- Message if no replies exist -->
   <div class="alert text-center" style="background-color: #F5DAA7; color: #662222;">
     No replies yet. Be the first to reply!
-    <a href="{% url 'reply_topic' topic.board.pk topic.pk %}" 
-       class="btn btn-lg mt-2"
-       style="background-color: #A3485A; color: #fff;">
-      <i class="bi bi-reply-fill"></i> Reply
-    </a>
+    
   </div>
   {% endfor %}
 

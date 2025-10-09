@@ -24,7 +24,7 @@ class TopicListView(ListView):
     paginate_by = 8
 
     def get_context_data(self, **kwargs):
-        kwargs['board'] = self.board
+        kwargs['board'] = self.board 
         return super().get_context_data(**kwargs)
 
     def get_queryset(self):
