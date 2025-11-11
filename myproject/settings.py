@@ -201,10 +201,15 @@ LOGGING = {
             "formatter": "verbose",
             "level": "DEBUG",              # write everything from DEBUG and up
         },
+        "console": {
+        "class": "logging.StreamHandler",  # sends logs to terminal
+        "formatter": "simple",              # use our simple style
+        "level": "INFO",                    # show INFO and above
+        },
     },
 
     "root": {  # the root logger — catches all messages if no specific logger defined
-        "handlers": ["file"],
+        "handlers": ["file","console"],
         "level": "DEBUG",  # minimum level to record
     },
 

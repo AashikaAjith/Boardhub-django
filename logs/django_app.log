@@ -48,3 +48,60 @@
 2025-11-11 14:05:00,032 [INFO] boards.views User admin viewing topic ID 107 on board 1
 2025-11-11 14:05:00,048 [INFO] django.server "GET /boards/1/topics/107/ HTTP/1.1" 200 8737
 2025-11-11 14:05:00,048 [INFO] django.server "GET /boards/1/topics/107/ HTTP/1.1" 200 8737
+2025-11-11 15:33:51,481 [INFO] django.utils.autoreload Watching for file changes with StatReloader
+2025-11-11 15:33:51,481 [INFO] django.utils.autoreload Watching for file changes with StatReloader
+2025-11-11 15:33:54,066 [INFO] boards.views home page is viewd by user:admin
+2025-11-11 15:33:54,158 [INFO] django.server "GET / HTTP/1.1" 200 7552
+2025-11-11 15:33:54,158 [INFO] django.server "GET / HTTP/1.1" 200 7552
+2025-11-11 15:33:59,425 [INFO] boards.views user admin viewing topics of board id 1
+2025-11-11 15:33:59,490 [INFO] django.server "GET /boards/1/ HTTP/1.1" 200 12062
+2025-11-11 15:33:59,490 [INFO] django.server "GET /boards/1/ HTTP/1.1" 200 12062
+2025-11-11 15:34:02,020 [INFO] boards.views User admin viewing topic ID 105 on board 1
+2025-11-11 15:34:02,048 [INFO] django.server "GET /boards/1/topics/105/ HTTP/1.1" 200 6265
+2025-11-11 15:34:02,048 [INFO] django.server "GET /boards/1/topics/105/ HTTP/1.1" 200 6265
+2025-11-11 15:34:11,099 [INFO] boards.views home page is viewd by user:admin
+2025-11-11 15:34:11,137 [INFO] django.server "GET / HTTP/1.1" 200 7552
+2025-11-11 15:34:11,137 [INFO] django.server "GET / HTTP/1.1" 200 7552
+2025-11-11 15:34:12,921 [INFO] boards.views user admin viewing topics of board id 3
+2025-11-11 15:34:12,930 [INFO] django.server "GET /boards/3/ HTTP/1.1" 200 4514
+2025-11-11 15:34:12,930 [INFO] django.server "GET /boards/3/ HTTP/1.1" 200 4514
+2025-11-11 15:36:50,327 [INFO] django.utils.autoreload C:\Users\Aashika Ajith\myproject\myproject\myproject\settings.py changed, reloading.
+2025-11-11 15:36:50,327 [INFO] django.utils.autoreload C:\Users\Aashika Ajith\myproject\myproject\myproject\settings.py changed, reloading.
+2025-11-11 15:36:50,981 [INFO] django.utils.autoreload Watching for file changes with StatReloader
+2025-11-11 15:36:50,981 [INFO] django.utils.autoreload Watching for file changes with StatReloader
+2025-11-11 15:36:53,444 [INFO] django.utils.autoreload C:\Users\Aashika Ajith\myproject\myproject\myproject\settings.py changed, reloading.
+2025-11-11 15:36:53,444 [INFO] django.utils.autoreload C:\Users\Aashika Ajith\myproject\myproject\myproject\settings.py changed, reloading.
+2025-11-11 15:36:54,023 [INFO] django.utils.autoreload Watching for file changes with StatReloader
+2025-11-11 15:36:54,023 [INFO] django.utils.autoreload Watching for file changes with StatReloader
+2025-11-11 15:36:59,790 [INFO] boards.views user admin viewing topics of board id 3
+2025-11-11 15:36:59,816 [INFO] django.server "GET /boards/3/ HTTP/1.1" 200 4514
+2025-11-11 15:36:59,816 [INFO] django.server "GET /boards/3/ HTTP/1.1" 200 4514
+2025-11-11 15:37:02,836 [INFO] boards.views home page is viewd by user:admin
+2025-11-11 15:37:02,876 [INFO] django.server "GET / HTTP/1.1" 200 7552
+2025-11-11 15:37:02,876 [INFO] django.server "GET / HTTP/1.1" 200 7552
+2025-11-11 15:37:04,334 [INFO] boards.views user admin viewing topics of board id 1
+2025-11-11 15:37:04,381 [INFO] django.server "GET /boards/1/ HTTP/1.1" 200 12062
+2025-11-11 15:37:04,381 [INFO] django.server "GET /boards/1/ HTTP/1.1" 200 12062
+2025-11-11 15:37:11,518 [INFO] django.utils.autoreload Watching for file changes with StatReloader
+2025-11-11 15:37:11,518 [INFO] django.utils.autoreload Watching for file changes with StatReloader
+2025-11-11 15:37:21,912 [INFO] django.utils.autoreload Watching for file changes with StatReloader
+2025-11-11 15:37:21,912 [INFO] django.utils.autoreload Watching for file changes with StatReloader
+2025-11-11 15:37:23,722 [INFO] boards.views home page is viewd by user:admin
+2025-11-11 15:37:23,794 [INFO] django.server "GET / HTTP/1.1" 200 7552
+2025-11-11 15:37:23,794 [INFO] django.server "GET / HTTP/1.1" 200 7552
+2025-11-11 15:37:25,531 [INFO] boards.views user admin viewing topics of board id 2
+2025-11-11 15:37:25,548 [INFO] django.server "GET /boards/2/ HTTP/1.1" 200 5256
+2025-11-11 15:37:25,548 [INFO] django.server "GET /boards/2/ HTTP/1.1" 200 5256
+2025-11-11 15:37:27,726 [INFO] boards.views User admin viewing topic ID 108 on board 2
+2025-11-11 15:37:27,746 [INFO] django.server "GET /boards/2/topics/108/ HTTP/1.1" 200 7299
+2025-11-11 15:37:27,746 [INFO] django.server "GET /boards/2/topics/108/ HTTP/1.1" 200 7299
+2025-11-11 15:37:58,311 [INFO] django.utils.autoreload C:\Users\Aashika Ajith\myproject\myproject\myproject\settings.py changed, reloading.
+2025-11-11 15:37:58,311 [INFO] django.utils.autoreload C:\Users\Aashika Ajith\myproject\myproject\myproject\settings.py changed, reloading.
+2025-11-11 15:37:58,894 [INFO] django.utils.autoreload Watching for file changes with StatReloader
+2025-11-11 15:37:58,894 [INFO] django.utils.autoreload Watching for file changes with StatReloader
+2025-11-11 15:38:01,738 [INFO] boards.views User admin viewing topic ID 108 on board 2
+2025-11-11 15:38:01,788 [INFO] django.server "GET /boards/2/topics/108/ HTTP/1.1" 200 7299
+2025-11-11 15:38:01,788 [INFO] django.server "GET /boards/2/topics/108/ HTTP/1.1" 200 7299
+2025-11-11 15:38:07,588 [INFO] boards.views home page is viewd by user:admin
+2025-11-11 15:38:07,627 [INFO] django.server "GET / HTTP/1.1" 200 7552
+2025-11-11 15:38:07,627 [INFO] django.server "GET / HTTP/1.1" 200 7552
