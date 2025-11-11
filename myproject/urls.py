@@ -31,7 +31,7 @@ urlpatterns = [
     path("signup/",acc_views.signup,name="signup"),
     path('login/',auth_views.LoginView.as_view(template_name='login.html',authentication_form=AuthenticationForm),name='login'),
     path('logout/', acc_views.logout_view, name='logout'), 
-    
+    #path("test-log/", views.test_log, name="test-log"),
     
     
     # Password reset

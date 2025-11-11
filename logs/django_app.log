@@ -1,0 +1,50 @@
+2025-11-11 14:03:44,009 [INFO] django.utils.autoreload Watching for file changes with StatReloader
+2025-11-11 14:03:44,009 [INFO] django.utils.autoreload Watching for file changes with StatReloader
+2025-11-11 14:03:58,671 [INFO] boards.views home page is viewd by user:AnonymousUser
+2025-11-11 14:03:58,753 [INFO] django.server "GET / HTTP/1.1" 200 6919
+2025-11-11 14:03:58,753 [INFO] django.server "GET / HTTP/1.1" 200 6919
+2025-11-11 14:04:06,093 [INFO] django.server "GET /login/ HTTP/1.1" 200 5175
+2025-11-11 14:04:06,093 [INFO] django.server "GET /login/ HTTP/1.1" 200 5175
+2025-11-11 14:04:06,182 [INFO] django.server "GET /static/css/accounts.css HTTP/1.1" 200 330
+2025-11-11 14:04:06,182 [INFO] django.server "GET /static/css/accounts.css HTTP/1.1" 200 330
+2025-11-11 14:04:15,664 [INFO] django.server "POST /login/ HTTP/1.1" 302 0
+2025-11-11 14:04:15,664 [INFO] django.server "POST /login/ HTTP/1.1" 302 0
+2025-11-11 14:04:15,669 [INFO] boards.views home page is viewd by user:admin
+2025-11-11 14:04:15,701 [INFO] django.server "GET / HTTP/1.1" 200 7552
+2025-11-11 14:04:15,701 [INFO] django.server "GET / HTTP/1.1" 200 7552
+2025-11-11 14:04:19,021 [INFO] boards.views user admin viewing topics of board id 3
+2025-11-11 14:04:19,033 [INFO] django.server "GET /boards/3/ HTTP/1.1" 200 4514
+2025-11-11 14:04:19,033 [INFO] django.server "GET /boards/3/ HTTP/1.1" 200 4514
+2025-11-11 14:04:20,357 [INFO] boards.views User admin opened new topic form for board Javascript
+2025-11-11 14:04:20,358 [DEBUG] boards.views New topic GET request by user admin
+2025-11-11 14:04:20,365 [INFO] django.server "GET /boards/3/new/ HTTP/1.1" 200 5224
+2025-11-11 14:04:20,365 [INFO] django.server "GET /boards/3/new/ HTTP/1.1" 200 5224
+2025-11-11 14:04:22,729 [INFO] boards.views home page is viewd by user:admin
+2025-11-11 14:04:22,763 [INFO] django.server "GET / HTTP/1.1" 200 7552
+2025-11-11 14:04:22,763 [INFO] django.server "GET / HTTP/1.1" 200 7552
+2025-11-11 14:04:24,787 [INFO] boards.views user admin viewing topics of board id 2
+2025-11-11 14:04:24,802 [INFO] django.server "GET /boards/2/ HTTP/1.1" 200 5256
+2025-11-11 14:04:24,802 [INFO] django.server "GET /boards/2/ HTTP/1.1" 200 5256
+2025-11-11 14:04:26,840 [INFO] boards.views User admin viewing topic ID 108 on board 2
+2025-11-11 14:04:26,876 [INFO] django.server "GET /boards/2/topics/108/ HTTP/1.1" 200 7299
+2025-11-11 14:04:26,876 [INFO] django.server "GET /boards/2/topics/108/ HTTP/1.1" 200 7299
+2025-11-11 14:04:41,427 [INFO] boards.views user admin viewing topics of board id 1
+2025-11-11 14:04:41,491 [INFO] django.server "GET /boards/1/ HTTP/1.1" 200 12062
+2025-11-11 14:04:41,491 [INFO] django.server "GET /boards/1/ HTTP/1.1" 200 12062
+2025-11-11 14:04:44,491 [INFO] boards.views User admin viewing topic ID 103 on board 1
+2025-11-11 14:04:44,512 [DEBUG] boards.views User admin marked as viewed for topic 103
+2025-11-11 14:04:44,520 [INFO] django.server "GET /boards/1/topics/103/ HTTP/1.1" 200 6265
+2025-11-11 14:04:44,520 [INFO] django.server "GET /boards/1/topics/103/ HTTP/1.1" 200 6265
+2025-11-11 14:04:50,208 [INFO] boards.views User admin viewing topic ID 107 on board 1
+2025-11-11 14:04:50,226 [INFO] django.server "GET /boards/1/topics/107/ HTTP/1.1" 200 8737
+2025-11-11 14:04:50,226 [INFO] django.server "GET /boards/1/topics/107/ HTTP/1.1" 200 8737
+2025-11-11 14:04:52,409 [DEBUG] boards.views Fetching posts editable by user admin
+2025-11-11 14:04:52,432 [INFO] django.server "GET /boards/1/topics/107/posts/113/edit/ HTTP/1.1" 200 6537
+2025-11-11 14:04:52,432 [INFO] django.server "GET /boards/1/topics/107/posts/113/edit/ HTTP/1.1" 200 6537
+2025-11-11 14:05:00,005 [DEBUG] boards.views Fetching posts editable by user admin
+2025-11-11 14:05:00,024 [INFO] boards.views User admin updated post 113
+2025-11-11 14:05:00,026 [INFO] django.server "POST /boards/1/topics/107/posts/113/edit/ HTTP/1.1" 302 0
+2025-11-11 14:05:00,026 [INFO] django.server "POST /boards/1/topics/107/posts/113/edit/ HTTP/1.1" 302 0
+2025-11-11 14:05:00,032 [INFO] boards.views User admin viewing topic ID 107 on board 1
+2025-11-11 14:05:00,048 [INFO] django.server "GET /boards/1/topics/107/ HTTP/1.1" 200 8737
+2025-11-11 14:05:00,048 [INFO] django.server "GET /boards/1/topics/107/ HTTP/1.1" 200 8737

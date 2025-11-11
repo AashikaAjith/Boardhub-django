@@ -148,3 +148,78 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Email subject prefix
 EMAIL_SUBJECT_PREFIX = '[BoardHub] '
+
+
+
+#logging sytem
+'''
+LOGGING={
+    "version":1,
+    "disable_existing_loggers":False,
+    "handlers":{
+        "console":{"class":"logging.StreamHandler"},
+    },
+    "root":{
+        "handlers":["console"],
+        "level":"DEBUG",
+
+    },
+
+}
+
+'''
+
+import os
+from pathlib import Path
+import logging
+from logging.handlers import RotatingFileHandler
+
+# Base directory of your project
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,  # keep Django’s default loggers active
+
+    "formatters": {
+        "verbose": {
+            "format": "{asctime} [{levelname}] {name} {message}",
+            "style": "{",
+        },
+        "simple": {
+            "format": "[{levelname}] {message}",
+            "style": "{",
+        },
+    },
+
+    "handlers": {
+        "file": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": os.path.join(BASE_DIR, "logs", "django_app.log"),
+            "maxBytes": 5 * 1024 * 1024,  # 5 MB before rotation
+            "backupCount": 5,              # keep last 5 log files
+            "formatter": "verbose",
+            "level": "DEBUG",              # write everything from DEBUG and up
+        },
+    },
+
+    "root": {  # the root logger — catches all messages if no specific logger defined
+        "handlers": ["file"],
+        "level": "DEBUG",  # minimum level to record
+    },
+
+    "loggers": {
+        # This makes Django's own logs also go to the same file
+        "django": {
+            "handlers": ["file"],
+            "level": "INFO",
+            "propagate": True,
+        },
+        # You can also add your own app logger if needed
+        "myapp": {
+            "handlers": ["file"],
+            "level": "DEBUG",
+            "propagate": False,
+        },
+    },
+}
